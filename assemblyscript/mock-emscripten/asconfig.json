@@ -1,0 +1,21 @@
+{
+  "entries": [
+    "src/process.ts"
+  ],
+  "options": {
+    "optimize": false,
+    "optimizeLevel": 0,
+    "shrinkLevel": 0,
+    "noAssert": true,
+    "sourceMap": true,
+    "debug": true,
+    "initialMemory": 96,
+    "maximumMemory": 1024,
+    "noExportMemory": true,
+    "runtime": "incremental",
+    "exportRuntime": false,
+    "stackSize": 65536,
+    "outFile": "build/process.wasm",
+    "textFile": "build/process.wat"
+  }
+}

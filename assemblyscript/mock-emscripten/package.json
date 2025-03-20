@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "asc --transform ./transform/mock-emscripten.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "assemblyscript": "0.27.35"
+  },
+  "devDependencies": {
+    "@permaweb/ao-loader": "0.0.48"
+  }
+}
