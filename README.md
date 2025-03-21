@@ -4,6 +4,8 @@ This repo contains simple working examples for each build method that I have fig
 
 The rest is up to you.
 
+To see a list of published AO modules that have been built by code in this repository, [click here](./MODULES.md).
+
 ## Choose Your Own Adventure!
 
 For a guided experience, [click here](./ADVENTURE.md).

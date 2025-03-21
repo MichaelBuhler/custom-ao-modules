@@ -1,4 +1,4 @@
-# Hooray
+# Success
 
 Congratulations, you built a custom module that will run on AO!
 
