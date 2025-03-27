@@ -10,6 +10,17 @@ To see a list of published AO modules that have been built by code in this repos
 
 For a guided experience, [click here](./ADVENTURE.md).
 
+## Build and Test Everything in this Repo
+
+The [Makefile](Makefile) in this folder will make all child folders.
+
+Pre-requisites: `node`, `npm`, and `make`.
+
+```sh
+make
+make test
+```
+
 ## Further Reading
 
 Building a custom module for AO can be very frustrating and/or time-consuming. The APIs and interfaces are not very well documented, if at all. I have invested some time in reverse engineering many of the components (especially the [reference CU](https://github.com/permaweb/ao/tree/main/servers/cu#readme) and the [AO dev-cli](https://github.com/permaweb/ao/tree/main/dev-cli#readme)) to figure out what makes AO tick on the inside. With this knowledge, I have hacked together minimally working examples with a variety of languages and toolchains. _(*I might not have published all of them here yet.)_

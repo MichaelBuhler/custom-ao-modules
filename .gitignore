@@ -1,7 +1,18 @@
 
 /.vscode/
+/node_modules/
 
-build/
-node_modules/
+temp/
+tmp/
 
 .DS_Store
+*.wasm
+*.wasm.map
+*.wat
+
+# temporarily ignoring these folders that are WIP
+
+/assemblyscript/old-example
+/c
+/python
+

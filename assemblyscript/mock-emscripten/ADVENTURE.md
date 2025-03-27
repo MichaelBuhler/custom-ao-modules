@@ -11,16 +11,15 @@ You'll have to dissasemble the compiled AssemblyScript module, reverse engineer 
 Or, you can just run my code in this folder:
 
 ```sh
-npm install
-npm run build
+make
 ```
 
-Voilà! You have built a WASM binary that is less than 10kb in size!
+Voilà! You have built a WASM binary that is less than 2kb in size!!
 
 Let's test it out by running it through [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
 
 ```sh
-npm test
+make test
 ```
 
 Did the test pass?
@@ -34,9 +33,9 @@ Did the test pass?
 
 That's great! It works for me, too. 
 
-I published the compiled WASM to Arweave as AO Module `ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c`. [Click here](https://www.ao.link/#/module/ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c) to view it on AO Link.
+I published the compiled WASM to Arweave as AO Module `nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4`. [Click here](https://www.ao.link/#/module/nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4) to view it on AO Link.
 
-I used that module to spawn AO Process `UYim9EZv3PhphgY5g9LgZi0oxqiXNmJ3sh54RLgZP6w`. [Click here](https://www.ao.link/#/entity/UYim9EZv3PhphgY5g9LgZi0oxqiXNmJ3sh54RLgZP6w) to view it on AO Link.
+I used that module to spawn AO Process `2Jm4oQ02par7N20-syVpjiYmxlloYy158XZNRQOCYIk`. [Click here](https://www.ao.link/#/entity/2Jm4oQ02par7N20-syVpjiYmxlloYy158XZNRQOCYIk) to view it on AO Link.
 
 Any process running this module will output `Hello, world!` for any dryrun or incoming message.
 

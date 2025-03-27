@@ -3,19 +3,17 @@
     "src/process.ts"
   ],
   "options": {
-    "optimize": false,
-    "optimizeLevel": 0,
-    "shrinkLevel": 0,
+    "optimize": true,
+    "optimizeLevel": 3,
+    "shrinkLevel": 2,
     "noAssert": true,
-    "sourceMap": true,
-    "debug": true,
-    "initialMemory": 96,
-    "maximumMemory": 1024,
+    "debug": false,
+    "initialMemory": 1,
+    "maximumMemory": 1,
     "noExportMemory": true,
-    "runtime": "incremental",
+    "runtime": "stub",
     "exportRuntime": false,
-    "stackSize": 65536,
-    "outFile": "build/process.wasm",
-    "textFile": "build/process.wat"
+    "stackSize": 32768,
+    "outFile": "src/process.wasm"
   }
 }
