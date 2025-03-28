@@ -1,3 +1,4 @@
+#!/usr/bin/env node --experimental-wasm-memory64
 
 import * as assert from 'node:assert'
 import { readFile } from 'node:fs/promises'

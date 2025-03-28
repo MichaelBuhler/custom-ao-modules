@@ -14,5 +14,6 @@ tmp/
 
 /assemblyscript/old-example
 /c
+/lua/with-ao-cli
 /python
 
