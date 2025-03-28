@@ -1,7 +1,5 @@
 
-.PHONY: all wasm test clean realclean
-
-all: wasm
+.PHONY: wasm test clean realclean
 
 wasm: src/process.wasm
 src/process.wasm: asconfig.json src/mock-emscripten.js src/process.ts | npm-deps

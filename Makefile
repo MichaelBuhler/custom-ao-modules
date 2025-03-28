@@ -1,9 +1,9 @@
 
 languages = assemblyscript lua
 
-.PHONY: all wasm test clean realclean
+.PHONY: wasm test clean realclean
 
-all wasm clean:
+wasm clean:
 	@for lang in $(languages); do \
 		$(MAKE) -C $$lang $@ 2>&1 | awk -v prefix="$$lang/" '{print prefix $$0}'; \
 	done

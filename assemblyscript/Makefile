@@ -1,9 +1,9 @@
 
 projects = mock-emscripten
 
-.PHONY: all wasm test clean realclean
+.PHONY: wasm test clean realclean
 
-all wasm clean realclean:
+wasm clean realclean:
 	@for proj in "$(projects)"; do \
 		$(MAKE) -C $$proj $@ 2>&1 | awk -v prefix="$$proj: " '{print prefix $$0}'; \
 	done
