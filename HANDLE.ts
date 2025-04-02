@@ -3,7 +3,7 @@ import type { Outbox } from './OUTBOX.ts'
 
 type ArweaveWallet = string //  43 base64url characters
 type ArweaveTxId   = string //  43 base64url characters
-type Hash          = string //  43 base64url characters
+type HashChainHash          = string //  43 base64url characters
 type Signature     = string // 683 base64url characters
 type Timestamp     = number // milliseconds since 1970-01-01
 
@@ -21,7 +21,7 @@ type Message = {
     Epoch: 0,                               // Always zero
     'Forwarded-By': AoProcessId | undefined // Not sure if AoProcessId, or MU's ArweaveWallet
     From: AoModuleId | ArweaveWallet
-    'Hash-Chain': Hash
+    'Hash-Chain': HashChainHash
     Id: AoMessageId
     Nonce: number                           // Message sequence number assigned by the SU
     Owner: ArweaveWallet
@@ -37,26 +37,28 @@ type Environment = {
         Id: AoModuleId
         Owner: ArweaveWallet
         Tags: Array<Tag>
-        // Tags MUST include { name: 'Data-Protocol'  , value: 'ao'                 }
-        // Tags MUST include { name: 'Type'           , value: 'Module'             }
-        // Tags MUST include { name: 'Content-Type'   , value: 'application/wasm'   }
-        // Tags MUST include { name: 'Module-Format'  , value: string               }
-        // Tags MUST include { name: 'Memory-Limit'   , value: string               }
-        // Tags MUST include { name: 'Compute-Limit'  , value: string               }
-        // Tags MUST include { name: 'Input-Encoding' , value: string               }
-        // Tags MUST include { name: 'Output-Encoding', value: string               }
-        // Tags MAY  include { name: 'Name'           , value: string               }
+        // Tags MUST   include { name: 'Data-Protocol'  , value: 'ao'                  }
+        // Tags MUST   include { name: 'Type'           , value: 'Module'              }
+        // Tags MUST   include { name: 'Content-Type'   , value: 'application/wasm'    }
+        // Tags MUST   include { name: 'Module-Format'  , value: string                }
+        // Tags MUST   include { name: 'Memory-Limit'   , value: string                }
+        // Tags MUST   include { name: 'Compute-Limit'  , value: string                }
+        // Tags MUST   include { name: 'Input-Encoding' , value: 'JSON-1' | string     }
+        // Tags MUST   include { name: 'Output-Encoding', value: 'JSON-1' | string     }
+        // Tags SHOULD include { name: 'Variant'        , value: 'ao.TN.1' /*testnet*/ }
+        // Tags MAY    include { name: 'Name'           , value: string                }
     }
     Process: {
         Id: AoProcessId
         Owner: ArweaveWallet
         Tags: Array<Tag>
-        // Tags MUST include { name: 'Data-Protocol'  , value: 'ao'                 }
-        // Tags MUST include { name: 'Type'           , value: 'Process'            }
-        // Tags MUST include { name: 'Module'         , value: AoModuleId           }
-        // Tags MUST include { name: 'Scheduler'      , value: ArweaveWallet        }
-        // Tags MAY  include { name: 'Name'           , value: string               }
-        // Tags MAY  include { name: 'On-Boot'        , value: 'Data' | ArweaveTxId }
+        // Tags MUST   include { name: 'Data-Protocol'  , value: 'ao'                  }
+        // Tags MUST   include { name: 'Type'           , value: 'Process'             }
+        // Tags MUST   include { name: 'Module'         , value: AoModuleId            }
+        // Tags MUST   include { name: 'Scheduler'      , value: ArweaveWallet         }
+        // Tags SHOULD include { name: 'Variant'        , value: 'ao.TN.1' /*testnet*/ }
+        // Tags MAY    include { name: 'Name'           , value: string                }
+        // Tags MAY    include { name: 'On-Boot'        , value: 'Data' | ArweaveTxId  }
     }
 }
 

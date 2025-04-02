@@ -18,8 +18,6 @@ The `handle()` function is invoked with two parameters, each of which is a JSON 
 
 The return value of `handle()` is a JSON encoded (stringified) object with two keys. The first key is `ok` and should be a boolean indicating success or failure. The second key is `response` and should be a valid `Outbox` object. [See here for a complete description of the Outbox.](./OUTBOX.md) All other keys are ignored.
 
-A value of `false` for the `ok` field really indicates a fatal, unexpected error, akin to an HTTP 500 response code. Most application errors ought to be handled more gracefully by setting `"ok": true` and placing the application error message in the `Error` field of the `response` Outbox object.
-
 ## Low Level Implementation Details and Calling Convention
 
 Ultimately, your process code has to compile down to WebAssembly. The `handle()` function takes two string arguments and returns a string. However, WebAssembly does not have a `string` type. Instead, Emscripten and WebAssembly work together to implement something very similar to C-style, null-terminated strings.
@@ -37,6 +35,24 @@ const char* handle(const char*, const char*);
 ```
 
 When this is compiled to Wasm32 each `const char*` pointer will be of the WebAssembly type `i32`. If compiling to Wasm64, they will be type `i64`.
+
+## Errors
+
+Errors can occur at a few levels:
+
+1. WASM errors:
+    - This is like the worst kind of error, where `handle()` cannot even return successfully.
+    - Examples:
+        - Accessing an invalid memory address ("segmentation fault")
+        - Stack overflow
+        - Something in the WASM calls the imported `abort()` function
+1. The JSON object returned by `handle()` contains `"ok": false`:
+    - This indicates a fatal, unexpected error (akin to an HTTP 500 response code) occured in your application.
+    - This should probably be implemented within the `handle()` function as a try/catch around all your application logic.
+1. The JSON object returned by `handle()` contains `"ok": true`, but the `response` Outbox object contains an `Error` set to a truthy value:
+    - Most application errors ought to be handled this way.
+
+The key thing to understand about all of these types of errors is that the evaluation result and changes to the WASM memory are discarded as if the incoming message which caused this error was never sequenced by the SU. Since the message (and its `NONCE`) are immutable and the WASM module is (really should be!) deterministic, a CU could skip this AO Message evaluation in the future since it has no impact on the state of the AO Process.
 
 ## In AOS
 
@@ -87,7 +103,7 @@ _I am using TypeScript below and in [this file](./HANDLE.ts) for expository purp
 ```TypeScript
 type ArweaveWallet = string //  43 base64url characters
 type ArweaveTxId   = string //  43 base64url characters
-type Hash          = string //  43 base64url characters
+type HashChainHash = string //  43 base64url characters
 type Signature     = string // 683 base64url characters
 type Timestamp     = number // milliseconds since 1970-01-01
 
@@ -105,7 +121,7 @@ type Message = {
     Epoch: 0,                               // Always zero
     'Forwarded-By': AoProcessId | undefined // Not sure if AoProcessId, or MU's ArweaveWallet
     From: AoModuleId | ArweaveWallet
-    'Hash-Chain': Hash
+    'Hash-Chain': HashChainHash
     Id: AoMessageId
     Nonce: number                           // Message sequence number assigned by the SU
     Owner: ArweaveWallet
@@ -121,26 +137,28 @@ type Environment = {
         Id: AoModuleId
         Owner: ArweaveWallet
         Tags: Array<Tag>
-        // Tags MUST include { name: 'Data-Protocol'  , value: 'ao'                 }
-        // Tags MUST include { name: 'Type'           , value: 'Module'             }
-        // Tags MUST include { name: 'Content-Type'   , value: 'application/wasm'   }
-        // Tags MUST include { name: 'Module-Format'  , value: string               }
-        // Tags MUST include { name: 'Memory-Limit'   , value: string               }
-        // Tags MUST include { name: 'Compute-Limit'  , value: string               }
-        // Tags MUST include { name: 'Input-Encoding' , value: string               }
-        // Tags MUST include { name: 'Output-Encoding', value: string               }
-        // Tags MAY  include { name: 'Name'           , value: string               }
+        // Tags MUST   include { name: 'Data-Protocol'  , value: 'ao'                  }
+        // Tags MUST   include { name: 'Type'           , value: 'Module'              }
+        // Tags MUST   include { name: 'Content-Type'   , value: 'application/wasm'    }
+        // Tags MUST   include { name: 'Module-Format'  , value: string                }
+        // Tags MUST   include { name: 'Memory-Limit'   , value: string                }
+        // Tags MUST   include { name: 'Compute-Limit'  , value: string                }
+        // Tags MUST   include { name: 'Input-Encoding' , value: 'JSON-1' | string     }
+        // Tags MUST   include { name: 'Output-Encoding', value: 'JSON-1' | string     }
+        // Tags SHOULD include { name: 'Variant'        , value: 'ao.TN.1' /*testnet*/ }
+        // Tags MAY    include { name: 'Name'           , value: string                }
     }
     Process: {
         Id: AoProcessId
         Owner: ArweaveWallet
         Tags: Array<Tag>
-        // Tags MUST include { name: 'Data-Protocol'  , value: 'ao'                 }
-        // Tags MUST include { name: 'Type'           , value: 'Process'            }
-        // Tags MUST include { name: 'Module'         , value: AoModuleId           }
-        // Tags MUST include { name: 'Scheduler'      , value: ArweaveWallet        }
-        // Tags MAY  include { name: 'Name'           , value: string               }
-        // Tags MAY  include { name: 'On-Boot'        , value: 'Data' | ArweaveTxId }
+        // Tags MUST   include { name: 'Data-Protocol'  , value: 'ao'                  }
+        // Tags MUST   include { name: 'Type'           , value: 'Process'             }
+        // Tags MUST   include { name: 'Module'         , value: AoModuleId            }
+        // Tags MUST   include { name: 'Scheduler'      , value: ArweaveWallet         }
+        // Tags SHOULD include { name: 'Variant'        , value: 'ao.TN.1' /*testnet*/ }
+        // Tags MAY    include { name: 'Name'           , value: string                }
+        // Tags MAY    include { name: 'On-Boot'        , value: 'Data' | ArweaveTxId  }
     }
 }
 

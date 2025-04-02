@@ -6,9 +6,15 @@ _The [AO Draft 5 Spec](https://gygbo2cdld7i3t624il5zxa3ezyv6sa2ikvhrlmabah2etw45
 
 ## Introduction
 
-The outbox (or at least the fields defined on it) is eventually returned by the CU to whomever requested the evaluation result. If you request the `GET /result/<messageId>?process-id=<processId>` HTTP endpoint from a CU, you will see this shape. _What is actually returned be the CU may include additional metadata fields, such as `GasUsed`._ When a MU receives this response, it can see if there are any additional assignments, messages, or spawns that it needs to continue pushing through the network. _Pushing is sometimes called cranking._
+The outbox (or at least the fields defined on it) is eventually returned by the CU to whomever requested the evaluation result. If you request the `GET /result/<messageId>?process-id=<processId>` HTTP endpoint from a CU, you will see this shape. _What is actually returned by the CU may include additional metadata fields, such as `GasUsed`._ When a MU receives this response, it can see if there are any additional assignments, messages, or spawns that it needs to continue pushing through the network. _Pushing is sometimes called cranking._
 
 When the CU is evaluating a message to a process, it invokes the `handle` function exported by the process's WASM module. Exactly what is being "handled" is the AO Message which is incoming to the AO Process. [See here for a complete description of the `handle` function.](./HANDLE.md) Critically, the modules's `handle` function is expected to return a JSON-encoded object, which includes an Outbox.
+
+## Errors
+
+Your application indicates an error by setting the `Error` field in the outbox. If no error occurred, you should omit the `Error` field entirely. The `Error` field is usually a `string` containing an informative error message. _I am not sure what will happen if you make it an other type._
+
+If you do set an `Error`, there is no point in setting any of the other field on the outbox, because this message evaluation result will be discarded and no outgoing Messages, Assignments, or Spawns will be cranked by the MU. The CU will also discard any changes to the WASM memory that occured while handling the message which resulted in an error.
 
 ## In AOS
 
@@ -17,6 +23,16 @@ In AOS, the outbox is managed via the `ao` Lua module, available globally via th
 The `ao` library module provides the `ao.assign()`, `ao.send()`, and `ao.spawn()` functions for pushing new values into the outbox structure, though you can do so manually. [Source code here.](https://github.com/permaweb/aos/blob/main/process/ao.lua)
 
 AOS provides the globally-defined convenience methods `Assign()`, `Send()`, and `Spawn()` which wrap and provide higher-level abstractions to the correpsonding library functions. [Source code here.](https://github.com/permaweb/aos/blob/main/process/process.lua)
+
+The AOS outbox `Output` is an object with fields that the AOS client (which is [implemented in Node.js](https://github.com/permaweb/aos/tree/main/src)) uses for displaying information to the user on the console:
+
+```TypeScript
+type Output = {
+    data: string   // Concatenation of every time `print(...)` was called during this message evaluation
+    prompt: string // The AOS prompt string, likely containing ANSI color escape codes
+    print = true   // always true?
+}
+```
 
 If you are writing a custom AO module, you may or may not choose to follow the design decision/pattern of AOS.
 
