@@ -52,7 +52,7 @@ Errors can occur at a few levels:
 1. The JSON object returned by `handle()` contains `"ok": true`, but the `response` Outbox object contains an `Error` set to a truthy value:
     - Most application errors ought to be handled this way.
 
-The key thing to understand about all of these types of errors is that the evaluation result and changes to the WASM memory are discarded as if the incoming message which caused this error was never sequenced by the SU. Since the message (and its `NONCE`) are immutable and the WASM module is (really should be!) deterministic, a CU could skip this AO Message evaluation in the future since it has no impact on the state of the AO Process.
+The key thing to understand about all of these types of errors is that the evaluation result and changes to the WASM memory are discarded as if the incoming message which caused this error was never sequenced by the SU. Since the message (and its `Nonce`) are immutable and the WASM module is (really should be!) deterministic, a CU could skip this AO Message evaluation in the future since it has no impact on the state of the AO Process.
 
 ## In AOS
 

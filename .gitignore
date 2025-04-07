@@ -2,9 +2,11 @@
 /.vscode/
 /node_modules/
 
+*archive/
 temp/
 tmp/
 
+.container
 .DS_Store
 *.wasm
 *.wasm.map

@@ -1,6 +1,5 @@
 #!/usr/bin/env node --experimental-wasm-memory64
 
-import * as assert from 'node:assert'
 import { readFile } from 'node:fs/promises'
 import { before, describe, it } from 'node:test'
 
@@ -39,9 +38,9 @@ function describeWasmModule (wasmFile, moduleFormat) {
     // Each module is expected to output `Hello, world!`
     //
     const HELLO_WORLD = 'Hello, world!'
-    it(`outputs "${HELLO_WORLD}"`, async () => {
+    it(`outputs "${HELLO_WORLD}"`, async (t) => {
       const result = await handle(memory, msg, env)
-      assert.equal(result.Output, HELLO_WORLD)
+      t.assert.equal(result.Output, HELLO_WORLD)
     })
 
   })
