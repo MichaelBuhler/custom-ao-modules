@@ -1,19 +1,22 @@
 
+# ignore these root folders
 /.vscode/
 /node_modules/
 
+# ignore these folders at any level
+*archive/
 temp/
 tmp/
 
+# ignore these files in any folder
 .DS_Store
 *.wasm
 *.wasm.map
 *.wat
 
-# temporarily ignoring these folders that are WIP
+# temporarily ignoring these folders that are WIP on my machine
 
-/assemblyscript/old-example
 /c
 /lua/with-ao-cli
 /python
-
+/rust
