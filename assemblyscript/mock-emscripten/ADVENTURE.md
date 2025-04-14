@@ -11,7 +11,7 @@ You'll have to dissasemble the compiled AssemblyScript module, reverse engineer 
 Or, you can just run my code in this folder:
 
 ```sh
-make
+make wasm
 ```
 
 Voilà! You have built a WASM binary that is less than 2kb in size!!
