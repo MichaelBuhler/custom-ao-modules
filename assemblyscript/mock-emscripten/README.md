@@ -4,10 +4,10 @@ This build process works by invoking the AssemblyScript compiler with a transfor
 
 Modules built by code in this folder:
 
-| AO Module ID | Size (bytes) | Published | View |
+| AO Module ID | Size (bytes) | Published | AO Link |
 | --- | --: | --- | --- |
-| `ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c` | 9,920 | 2025-03-21T10:39:37Z | [AO Link](https://www.ao.link/#/module/ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c) |
-| `nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4` | 1,617 | 2025-03-27T13:27:40Z | [AO Link](https://www.ao.link/#/module/nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4) |
+| `ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c` | 9,920 | 2025-03-21T10:39:37Z | [View](https://www.ao.link/#/module/ACp1zT_Zvv7HL9Dv7iigyOad2R9oRfXip1GdqjAT91c) |
+| `nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4` | 1,617 | 2025-03-27T13:27:40Z | [View](https://www.ao.link/#/module/nVeoUh5AfaDRnkkxHoxcjOo5Gv6BxrbdZEUSKT2FkG4) |
 
 ## pre-requisites
 
