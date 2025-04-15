@@ -11,7 +11,7 @@ node_modules/assemblyscript:
 
 test: wasm
 	@$(MAKE) -C ../.. test-deps
-	../../test.mjs src/process.wasm wasm32-unknown-emscripten3
+	../../test.mjs src/process.wasm wasm32-unknown-emscripten3 hello
 
 clean:
 	rm -f src/process.wasm

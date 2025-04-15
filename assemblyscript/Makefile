@@ -10,4 +10,4 @@ wasm clean realclean:
 
 test: wasm
 	@$(MAKE) -C .. test-deps
-	../test.mjs mock-emscripten/src/process.wasm wasm32-unknown-emscripten3
+	../test.mjs mock-emscripten/src/process.wasm wasm32-unknown-emscripten3 hello

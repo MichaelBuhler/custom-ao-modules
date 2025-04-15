@@ -10,8 +10,8 @@ wasm clean:
 
 test: wasm test-deps
 	@./test.mjs \
-		assemblyscript/mock-emscripten/src/process.wasm   wasm32-unknown-emscripten3                 \
-		lua/with-ao-container/src/process.wasm            wasm64-unknown-emscripten-draft_2024_02_15
+		assemblyscript/mock-emscripten/src/process.wasm   wasm32-unknown-emscripten3                   hello \
+		lua/with-ao-container/src/process.wasm            wasm64-unknown-emscripten-draft_2024_02_15   all
 .PHONY: test-deps
 test-deps: node_modules/@permaweb/ao-loader
 node_modules/@permaweb/ao-loader:

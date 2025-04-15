@@ -13,7 +13,7 @@ src/process.wasm: src/config.yml src/process.lua
 
 test: wasm
 	@$(MAKE) -C ../.. test-deps
-	../../test.mjs src/process.wasm wasm64-unknown-emscripten-draft_2024_02_15
+	../../test.mjs src/process.wasm wasm64-unknown-emscripten-draft_2024_02_15 all
 
 clean realclean:
 	rm -f src/process.wasm

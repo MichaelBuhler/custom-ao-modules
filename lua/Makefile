@@ -10,4 +10,4 @@ wasm clean realclean:
 
 test: wasm
 	@$(MAKE) -C .. test-deps
-	../test.mjs with-ao-container/src/process.wasm wasm64-unknown-emscripten-draft_2024_02_15
+	../test.mjs with-ao-container/src/process.wasm wasm64-unknown-emscripten-draft_2024_02_15 all
