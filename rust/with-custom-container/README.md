@@ -4,6 +4,12 @@ This build process works by first building a custom Docker image, instead of usi
 
 The custom build container will compile your Rust source files into a static library, then use Emscripten to link a final WASM binary that is compatible with [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader).
 
+Modules built by code in this folder:
+
+| AO Module ID | Size (bytes) | Published | AO Link |
+| --- | --: | --- | --- |
+| `_H4PSBNbZrdBt0G1CxJd0fNzI1kiT_9EojkAwiBqsjM` | 69,872 | 2024-04-15T11:19:18Z | [View](https://www.ao.link/#/module/_H4PSBNbZrdBt0G1CxJd0fNzI1kiT_9EojkAwiBqsjM) |
+
 ## pre-requisites
 
 `docker` and `make`.
