@@ -8,7 +8,7 @@ Your `handle()` function will be passed the incoming AO Message as the first par
 
 Then you just need to bind mount your source code directory inside of the container and run the provided `ao-build-module` script: _(Alternately, you can use the Makefile in this folder.)_
 
-```shell
+```sh
 docker container run --volume ./src:/src p3rmaw3b/ao:0.1.5 ao-build-module
 # --- OR ----
 make wasm
@@ -37,7 +37,7 @@ That's great! It works for me, too.
 
 I used that module to spawn AO Process `TODO`. [Click here](https://www.ao.link/#/entity/TODO) to view it on AO Link. -->
 
-Any process running this module will output `Hello, world!` for any dryrun or incoming message.
+Any process running this module will output `Hello, world!` for most dryruns or incoming message. If you set the tag `Action: Echo`, it will echo any data you send to it in its output. If you send an `Action: Ping` message, it will reply to the sender with an `Action: Pong` message. Any other `Action` will result in an error.
 
 ---
 
@@ -47,4 +47,3 @@ You did it! How do you feel?
 
 * [I have a lot to learn.](../../SUCCESS.md)
   - _It's okay, we all do._
-
