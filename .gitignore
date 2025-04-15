@@ -9,6 +9,7 @@ temp/
 tmp/
 
 # ignore these files in any folder
+.container
 .DS_Store
 *.wasm
 *.wasm.map
