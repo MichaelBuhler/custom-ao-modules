@@ -2,6 +2,12 @@
 
 This build process works by directly running a Docker container using the [`p3rmaw3b/ao`](https://hub.docker.com/r/p3rmaw3b/ao/tags) image from Docker Hub.
 
+Modules built by code in this folder:
+
+| AO Module ID | Size (bytes) | Published | AO Link |
+| --- | --: | --- | --- |
+| `Bgo_doLCMWUvX8KpGY-4S0V1sgo9LWzFmYJvqM2I4FM` | 454,614 | 2025-04-15T10:52:32Z | [View](https://www.ao.link/#/module/Bgo_doLCMWUvX8KpGY-4S0V1sgo9LWzFmYJvqM2I4FM) |
+
 ## pre-requisites
 
 `docker` and `make`.
