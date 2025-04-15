@@ -16,8 +16,6 @@ tmp/
 *.wat
 
 # temporarily ignoring these folders that are WIP on my machine
-
 /c
 /lua/with-ao-cli
 /python
-/rust
