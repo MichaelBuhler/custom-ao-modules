@@ -12,4 +12,7 @@ Which programming language do you want to develop in?
 - [Lua](lua/ADVENTURE.md)
   - _Lua has the most support/resources within the ecosystem._
 
+- [Rust](rust/ADVENTURE.md)
+  - _Rust is the most safest language, as you know._
+
 - [My favorite language is not listed here.](./ABORT.md)
