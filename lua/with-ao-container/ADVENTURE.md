@@ -33,9 +33,9 @@ Did the tests pass?
 
 That's great! It works for me, too. 
 
-<!-- I published the compiled WASM to Arweave as AO Module `TODO`. [Click here](https://www.ao.link/#/module/TODO) to view it on AO Link.
+I published the compiled WASM to Arweave as AO Module `Bgo_doLCMWUvX8KpGY-4S0V1sgo9LWzFmYJvqM2I4FM`. [Click here](https://www.ao.link/#/module/Bgo_doLCMWUvX8KpGY-4S0V1sgo9LWzFmYJvqM2I4FM) to view it on AO Link.
 
-I used that module to spawn AO Process `TODO`. [Click here](https://www.ao.link/#/entity/TODO) to view it on AO Link. -->
+I used that module to spawn AO Process `duAiJDLAYzmEvaMk_rH07OXQ4W3hcIBCT_YGz0Mzcn0`. [Click here](https://www.ao.link/#/entity/duAiJDLAYzmEvaMk_rH07OXQ4W3hcIBCT_YGz0Mzcn0) to view it on AO Link.
 
 Any process running this module will output `Hello, world!` for most dryruns or incoming message. If you set the tag `Action: Echo`, it will echo any data you send to it in its output. If you send an `Action: Ping` message, it will reply to the sender with an `Action: Pong` message. Any other `Action` will result in an error.
 
