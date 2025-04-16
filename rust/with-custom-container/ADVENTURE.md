@@ -43,9 +43,9 @@ Did the tests pass?
 
 That's great! It works for me, too. 
 
-<!-- I published the compiled WASM to Arweave as AO Module `TODO`. [Click here](https://www.ao.link/#/module/TODO) to view it on AO Link.
+I published the compiled WASM to Arweave as AO Module `_H4PSBNbZrdBt0G1CxJd0fNzI1kiT_9EojkAwiBqsjM`. [Click here](https://www.ao.link/#/module/_H4PSBNbZrdBt0G1CxJd0fNzI1kiT_9EojkAwiBqsjM) to view it on AO Link.
 
-I used that module to spawn AO Process `TODO`. [Click here](https://www.ao.link/#/entity/TODO) to view it on AO Link. -->
+I used that module to spawn AO Process `2R8jvteLrtfWLUeUNzPPdztV_J5sg_hZ1Uu4l9GLlPE`. [Click here](https://www.ao.link/#/entity/2R8jvteLrtfWLUeUNzPPdztV_J5sg_hZ1Uu4l9GLlPE) to view it on AO Link.
 
 Any process running this module will output `Hello, world!` for any dryrun or incoming message.
 
