@@ -6,7 +6,15 @@ The rest is up to you.
 
 ## Choose Your Own Adventure!
 
-For a guided experience, please [click here](./ADVENTURE.md).
+For a guided/tutorial experience, please [click here](./ADVENTURE.md)!
+
+## Implementation Status
+
+| Language | Hello, World! | Echo Data | Reply to Ping |
+| --- | :-: | :-: | :-: |
+| AssemblyScript | ✅ | ❌ | ❌ |
+| Lua | ✅ | ✅ | ✅ |
+| Rust | ✅ | ❌ | ❌ |
 
 ## Repository Goals
 
@@ -22,14 +30,6 @@ A secondary goal is to tweak each build process to make both the WASM binary and
 
 See [MODULES.md](./MODULES.md) for a list of modules which have been built and published from the code in this repository.
 
-## Main Challenges
-
-Anyone building a custom AO Module will be principally concerned with correctly implementing and exporting a `handle()` function from their built WASM binary. [See here for a complete description of the `handle` function.](./HANDLE.md)
-
-Secondarily, the `handle()` function should return a valid Outbox object (JSON-encoded). [See here for a complete description of the Outbox.](./OUTBOX.md)
-
-A tertiary concern is finagling your WASM binary's imports and exports to be compatible with one of the `Module-Format`s supported by [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader). This is by far the most difficult aspect for languages not supported by the [AO Dev CLI](https://github.com/permaweb/ao/tree/main/dev-cli#readme).
-
 ## Build and Test Everything in this Repository
 
 The [Makefile](Makefile) in this folder will make all child folders.
@@ -40,6 +40,14 @@ Pre-requisites: `docker`, `node`, `npm`, and `make`.
 make
 make test
 ```
+
+## Main Challenges of Custom Modules
+
+Anyone building a custom AO Module will be principally concerned with correctly implementing and exporting a `handle()` function from their built WASM binary. [See here for a complete description of the `handle` function.](./HANDLE.md)
+
+Secondarily, the `handle()` function should return a valid Outbox object (JSON-encoded). [See here for a complete description of the Outbox.](./OUTBOX.md)
+
+A tertiary concern is finagling your WASM binary's imports and exports to be compatible with one of the `Module-Format`s supported by [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader). This is by far the most difficult aspect for languages not supported by the [AO Dev CLI](https://github.com/permaweb/ao/tree/main/dev-cli#readme).
 
 ## Further Reading
 
