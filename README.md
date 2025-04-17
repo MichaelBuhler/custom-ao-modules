@@ -1,8 +1,8 @@
 # Custom AO Modules
 
-This repository contains simple working examples for each build method that I have figured out.
+This repository contains simple working examples for each build method that I have figured out. The rest is up to you.
 
-The rest is up to you.
+_This repository is provided by the Marshal AO team. You can [join us on Discord](https://discord.gg/KzSRvefPau)._
 
 ## Choose Your Own Adventure!
 
