@@ -26,7 +26,7 @@ make
 make test
 ```
 
-# Additional Reading
+# Implementation Notes
 
 I could only figure out how to make this work for `wasm32`. The Rust compiler can target `wasm64-unknown-unknown`, but the resulting binary keeps calling `$abort` from a section of code called `$__rustc::__rg_oom`, so I think there is a problem with memory management if you don't target Emscripten.
 

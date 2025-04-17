@@ -11,9 +11,10 @@ tmp/
 # ignore these files in any folder
 .container
 .DS_Store
-*.wasm
-*.wasm.map
-*.wat
+process.mjs
+process.wasm
+process.wasm.map
+process.wat
 
 # temporarily ignoring these folders that are WIP on my machine
 /c

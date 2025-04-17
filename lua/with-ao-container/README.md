@@ -24,7 +24,7 @@ make
 make test
 ```
 
-# Additional Reading
+# Implementation Notes
 
 The Dockerfile which builds the `p3rmaw3b/ao` image is available [here](https://github.com/permaweb/ao/blob/main/dev-cli/container/Dockerfile).
 

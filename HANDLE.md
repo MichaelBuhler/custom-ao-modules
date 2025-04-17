@@ -28,9 +28,9 @@ The inverse happens when the `handle()` function returns. Rather than returning 
 
 These stack allocation operations mean that if the size of the incoming AO Message (the `Data` field on the Arweave transaction is of arbitrary size) is larger than the available space on the WASM stack, the stack will overflow and the AO Process cannot handle the message.
 
-Using C language semantics/syntax, we can define (forward declare) a `handle()` function that will work with the Emscripten runtime:
+Using C language semantics/syntax, we can define (forward declare) a `handle()` function that will work with the Emscripten runtime and `ao-loader`:
 
-```C
+```c
 const char* handle(const char*, const char*);
 ```
 

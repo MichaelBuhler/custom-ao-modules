@@ -11,7 +11,7 @@ For a guided/tutorial experience, please [click here](./ADVENTURE.md)!
 ## Implementation Status
 
 | Language | Hello, World! | Echo Data | Reply to Ping |
-| --- | :-: | :-: | :-: |
+| :-- | :-: | :-: | :-: |
 | AssemblyScript | ✅ | ❌ | ❌ |
 | Lua | ✅ | ✅ | ✅ |
 | Rust | ✅ | ❌ | ❌ |
