@@ -21,7 +21,7 @@ For a guided/tutorial experience, please [click here](./ADVENTURE.md)!
 
 For each target language, the primary goal is to produce a functioning AO Module that can pass a simple test suite.
 
-"Functioning AO Module" means that the produced WASM binary can be published to Arweave and used for spawning AO processes on testnet/legacynet. By necessity, this means that module will be loadable and invocable by [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader).
+"Functioning AO Module" means that the produced WASM binary can be published to Arweave and used for spawning AO processes on testnet/legacynet. By necessity, this means that module will be loadable and invocable by [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader).
 
 [See here for a description of module features and the test suite.](./TESTS.md)
 
@@ -48,7 +48,7 @@ Anyone building a custom AO Module will be principally concerned with correctly 
 
 Secondarily, the `handle()` function should return a valid Outbox object (JSON-encoded). [See here for a complete description of the Outbox.](./OUTBOX.md)
 
-A tertiary concern is finagling your WASM binary's imports and exports to be compatible with one of the `Module-Format`s supported by [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader). This is by far the most difficult aspect for languages not supported by the [AO Dev CLI](https://github.com/permaweb/ao/tree/main/dev-cli#readme).
+A tertiary concern is finagling your WASM binary's imports and exports to be compatible with one of the `Module-Format`s supported by [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader). This is by far the most difficult aspect for languages not supported by the [AO Dev CLI](https://github.com/permaweb/ao/tree/main/dev-cli#readme).
 
 ## Further Reading
 

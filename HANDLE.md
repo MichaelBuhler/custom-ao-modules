@@ -6,7 +6,7 @@ _No [AO Spec](https://gygbo2cdld7i3t624il5zxa3ezyv6sa2ikvhrlmabah2etw45wua.arwea
 
 ## Introduction
 
-When the CU is asked to evaluate an AO Message to an AO Process, it will first look up the AO Module that the AO Process is using. If not already cached, the CU will download the AO Module from Arweave. The AO module is expected to be a WASM module, and should have a `Content-Type: application/wasm` tag on the Arweave transaction that published it. The CU will then use the [`ao-loader` package](https://www.npmjs.com/package/@permaweb/ao-loader) to instantiate an instance of the WASM module using the Emscripten runtime indicated by the `Module-Format` tag on the Arweave transaction that published the module.
+When the CU is asked to evaluate an AO Message to an AO Process, it will first look up the AO Module that the AO Process is using. If not already cached, the CU will download the AO Module from Arweave. The AO module is expected to be a WASM module, and should have a `Content-Type: application/wasm` tag on the Arweave transaction that published it. The CU will then use the [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader) npm package to instantiate an instance of the WASM module using the Emscripten runtime indicated by the `Module-Format` tag on the Arweave transaction that published the module.
 
 ## The `handle()` Function
 
@@ -28,7 +28,7 @@ The inverse happens when the `handle()` function returns. Rather than returning 
 
 These stack allocation operations mean that if the size of the incoming AO Message (the `Data` field on the Arweave transaction is of arbitrary size) is larger than the available space on the WASM stack, the stack will overflow and the AO Process cannot handle the message.
 
-Using C language semantics/syntax, we can define (forward declare) a `handle()` function that will work with the Emscripten runtime and `ao-loader`:
+Using C language semantics/syntax, we can define (forward declare) a `handle()` function that will work with the Emscripten runtime and `@permaweb/ao-loader`:
 
 ```c
 const char* handle(const char*, const char*);

@@ -26,7 +26,7 @@ make wasm
 
 Shazam! You've built a shiny new `process.wasm` into your `/src` directory!
 
-Let's test it out by running some tests with [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
+Let's test it out by running some tests with [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
 
 ```sh
 make test

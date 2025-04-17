@@ -16,7 +16,7 @@ make wasm
 
 Voilà! You have built a WASM binary that is less than 2kb in size!!
 
-Let's test it out by running it through [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
+Let's test it out by running it through [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
 
 ```sh
 make test

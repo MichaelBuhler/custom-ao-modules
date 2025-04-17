@@ -16,7 +16,7 @@ make wasm
 
 Done. You have built an AO module from your Lua project.
 
-Let's test it out by running it through [`ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
+Let's test it out by running it through [`@permaweb/ao-loader`](https://www.npmjs.com/package/@permaweb/ao-loader):
 
 ```sh
 make test
