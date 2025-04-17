@@ -13,6 +13,7 @@ For a guided/tutorial experience, please [click here](./ADVENTURE.md)!
 | Language | Hello, World! | Echo Data | Reply to Ping |
 | :-- | :-: | :-: | :-: |
 | AssemblyScript | ✅ | ❌ | ❌ |
+| C | ✅ | ❌ | ❌ |
 | Lua | ✅ | ✅ | ✅ |
 | Rust | ✅ | ❌ | ❌ |
 

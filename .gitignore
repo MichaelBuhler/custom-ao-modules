@@ -17,6 +17,6 @@ process.wasm.map
 process.wat
 
 # temporarily ignoring these folders that are WIP on my machine
-/c
+/c/with-ao-container
 /lua/with-ao-cli
 /python

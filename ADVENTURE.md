@@ -9,6 +9,9 @@ Which programming language do you want to develop in?
 - [AssemblyScript](./assemblyscript/ADVENTURE.md)
   - _AssemblyScript is similar to TypeScript._
 
+- [C](./c/ADVENTURE.md)
+  - _C is the lingua franca of programming._
+
 - [Lua](./lua/ADVENTURE.md)
   - _Lua has the most support/resources within the ecosystem._
 

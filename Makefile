@@ -1,5 +1,5 @@
 
-languages = assemblyscript lua rust
+languages = assemblyscript c lua rust
 
 .PHONY: wasm test clean realclean
 
@@ -11,6 +11,7 @@ wasm clean:
 test: wasm test-deps
 	@./test.mjs \
 		assemblyscript/mock-emscripten/src/process.wasm   wasm32-unknown-emscripten3                   hello \
+		c/with-emsdk-container/src/process.wasm           wasm32-unknown-emscripten4                   hello \
 		lua/with-ao-container/src/process.wasm            wasm64-unknown-emscripten-draft_2024_02_15   all   \
 		rust/with-custom-container/src/process.wasm       wasm32-unknown-emscripten4                   hello
 .PHONY: test-deps
